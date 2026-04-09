@@ -1,19 +1,37 @@
-model_id: kakaocorp/kanana-nano-2.1b-base
-output_dir: ondevice/outputs/int4
-quantization: int4
-device: auto
-dtype: bfloat16
-sample_prompt: "안녕하세요. 모델 상태를 점검합니다."
-max_new_tokens: 64
-bnb_4bit_compute_dtype: bfloat16
-bnb_4bit_quant_type: nf4
-bnb_4bit_use_double_quant: true
+# ──────────────────────────────────────────────
+# Kanana 4-bit 변환 설정
+# ──────────────────────────────────────────────
+
+model:
+  id: "kakaocorp/kanana-nano-2.1b-base"
+  trust_remote_code: true
+  arch_override: null
+
+quantization:
+  mode: "int4"
+  # ai_edge_torch int4 옵션
+  # "weight_only_q4_0"  : GGUF Q4_0 유사 (빠르지만 정확도 낮음)
+  # "weight_only_q4_k"  : k-means 기반 (더 정확, 시간 더 걸림)
+  algorithm: "weight_only_q4_0"
+  weight_only: true
+  per_channel: true
+  # int4는 그룹 양자화 지원 시 group_size 설정
+  group_size: 128
+
 export:
-  save_tokenizer: true
-  save_generation_config: true
+  prefill_seq_len: 512
+  kv_cache_max: 1024
+  output_dir: "outputs/int4"
+  tflite_filename: "kanana_int4.tflite"
+
 bundle:
-  create_task: true
-  create_litertlm: false
-  start_token: "<bos>"
-  stop_tokens:
-    - "<eos>"
+  output_task: "outputs/int4/kanana_int4.task"
+  output_litertlm: "outputs/int4/kanana_int4.litertlm"
+  start_token_id: 128000
+  stop_token_ids: [128001]
+  lora_rank_factor: 0
+  supported_lora_ranks: []
+
+logging:
+  level: "INFO"
+  save_log: true

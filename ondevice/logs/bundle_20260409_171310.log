@@ -1,0 +1,9 @@
+2026-04-09 17:13:10,674 [INFO] 메타데이터 로드: /home/mjudcd/문서/Study/kanana-test/ondevice/outputs/int8/export_meta.json
+2026-04-09 17:13:10,675 [INFO] 
+[.task 패키징 시작] → /home/mjudcd/문서/Study/kanana-test/ondevice/outputs/int8/kanana_int8.task
+2026-04-09 17:13:12,076 [INFO]   ➕ TF_LITE_PREFILL_DECODE (2100.5 MB)
+2026-04-09 17:13:12,087 [INFO]   ➕ TOKENIZER_MODEL (tokenizer.json)
+2026-04-09 17:13:12,087 [INFO]   ➕ METADATA
+2026-04-09 17:13:12,459 [INFO] ✅ .task 생성 완료: /home/mjudcd/문서/Study/kanana-test/ondevice/outputs/int8/kanana_int8.task (2117.7 MB)
+2026-04-09 17:13:12,459 [INFO] 
+로그 저장: /home/mjudcd/문서/Study/kanana-test/ondevice/logs/bundle_20260409_171310.log

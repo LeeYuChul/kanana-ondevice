@@ -1,0 +1,25 @@
+2026-04-09 16:54:15,148 [INFO] 메타데이터 로드: /home/mjudcd/문서/Study/kanana-test/ondevice/outputs/int4/export_meta.json
+2026-04-09 16:54:15,154 [INFO] 
+[.task 패키징 시작] → /home/mjudcd/문서/Study/kanana-test/ondevice/outputs/int4/kanana_int4.task
+2026-04-09 16:54:15,154 [WARNING] SentencePiece(.spm) 파일 없음. tokenizer.json 기반입니다.
+2026-04-09 16:54:15,154 [WARNING] MediaPipe .task 번들은 SentencePiece를 권장합니다.
+2026-04-09 16:54:15,154 [WARNING] tokenizer.json 경로를 직접 번들에 포함하는 방식으로 진행합니다.
+2026-04-09 16:54:15,858 [INFO]   ➕ model.tflite (1078.7 MB)
+2026-04-09 16:54:15,868 [INFO]   ➕ tokenizer.json
+2026-04-09 16:54:15,868 [INFO]   ➕ metadata/metadata.json
+2026-04-09 16:54:16,097 [INFO] ✅ .task 생성 완료: /home/mjudcd/문서/Study/kanana-test/ondevice/outputs/int4/kanana_int4.task (1095.9 MB)
+2026-04-09 16:54:16,097 [INFO] 
+[.litertlm 패키징 시작] → /home/mjudcd/문서/Study/kanana-test/ondevice/outputs/int4/kanana_int4.litertlm
+2026-04-09 16:54:16,097 [WARNING] SentencePiece(.spm) 파일 없음. tokenizer.json 기반입니다.
+2026-04-09 16:54:16,097 [WARNING] MediaPipe .task 번들은 SentencePiece를 권장합니다.
+2026-04-09 16:54:16,097 [WARNING] tokenizer.json 경로를 직접 번들에 포함하는 방식으로 진행합니다.
+2026-04-09 16:54:16,732 [INFO]   ➕ model.tflite (1078.7 MB)
+2026-04-09 16:54:16,743 [INFO]   ➕ tokenizer/tokenizer.json
+2026-04-09 16:54:16,743 [INFO]   ➕ tokenizer/tokenizer_config.json
+2026-04-09 16:54:16,743 [INFO]   ➕ tokenizer/special_tokens_map.json
+2026-04-09 16:54:16,756 [INFO]   ➕ tokenizer/tokenizer.json
+2026-04-09 16:54:16,756 [INFO]   ➕ config.json
+2026-04-09 16:54:16,756 [INFO] ✅ .litertlm 생성 완료: /home/mjudcd/문서/Study/kanana-test/ondevice/outputs/int4/kanana_int4.litertlm (1113.2 MB)
+2026-04-09 16:54:16,756 [INFO] 
+로그 저장: /home/mjudcd/문서/Study/kanana-test/ondevice/logs/bundle_20260409_165415.log
+2026-04-09 16:54:16,756 [INFO] ✅ 번들링 완료 → 다음 단계: python verify_artifact.py --quant int4

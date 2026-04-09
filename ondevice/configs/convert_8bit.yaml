@@ -1,16 +1,43 @@
-model_id: kakaocorp/kanana-nano-2.1b-base
-output_dir: ondevice/outputs/int8
-quantization: int8
-device: auto
-dtype: bfloat16
-sample_prompt: "안녕하세요. 모델 상태를 점검합니다."
-max_new_tokens: 64
+# ──────────────────────────────────────────────
+# Kanana 8-bit 변환 설정
+# ──────────────────────────────────────────────
+
+model:
+  id: "kakaocorp/kanana-nano-2.1b-base"
+  trust_remote_code: true
+
+  # inspect_model.py 실행 후 아키텍처 결과에 따라 아래 값을 채울 것
+  # verdict == DIRECT  → arch_override: null
+  # verdict == MAPPING → arch_override: "LlamaForCausalLM" 등
+  arch_override: null
+
+quantization:
+  mode: "int8"           # dynamic range quantization
+  weight_only: true      # weight만 int8, activation은 float32 유지
+  per_channel: true      # 채널별 양자화 (정확도 향상)
+
 export:
-  save_tokenizer: true
-  save_generation_config: true
+  # ai_edge_torch 변환 옵션
+  prefill_seq_len: 512    # prefill 최대 시퀀스 길이
+  kv_cache_max: 1024      # KV 캐시 최대 토큰 수
+  output_dir: "outputs/int8"
+  tflite_filename: "kanana_int8.tflite"
+
 bundle:
-  create_task: true
-  create_litertlm: false
-  start_token: "<bos>"
-  stop_tokens:
-    - "<eos>"
+  # .task 패키징 옵션
+  output_task: "outputs/int8/kanana_int8.task"
+  # .litertlm 패키징 옵션
+  output_litertlm: "outputs/int8/kanana_int8.litertlm"
+
+  # tokenizer 설정
+  # inspect_model.py 결과에서 확인한 값을 채울 것
+  start_token_id: 128000    # bos_token_id (inspect 결과로 채울 것)
+  stop_token_ids: [128001]      # eos_token_id 목록 (inspect 결과로 채울 것)
+
+  # MediaPipe LLM Inference 메타데이터
+  lora_rank_factor: 0
+  supported_lora_ranks: []
+
+logging:
+  level: "INFO"
+  save_log: true

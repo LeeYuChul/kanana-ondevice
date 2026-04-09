@@ -1,0 +1,9 @@
+2026-04-09 18:28:15,545 [INFO] ============================================================
+2026-04-09 18:28:15,545 [INFO] Kanana-Nano-2.1B MediaPipe 호환 TFLite 변환
+2026-04-09 18:28:15,545 [INFO] ============================================================
+2026-04-09 18:28:15,545 [INFO]   model_id       : kakaocorp/kanana-nano-2.1b-base
+2026-04-09 18:28:15,545 [INFO]   quantize       : dynamic_int4_block128
+2026-04-09 18:28:15,545 [INFO]   prefill_lens   : [256]
+2026-04-09 18:28:15,545 [INFO]   kv_cache_max   : 1280
+2026-04-09 18:28:15,545 [INFO]   output_dir     : /home/mjudcd/문서/Study/kanana-test/ondevice/outputs/mediapipe
+2026-04-09 18:28:15,545 [INFO] [dry-run] 설정 확인 완료. 실제 변환은 실행되지 않음.

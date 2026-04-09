@@ -1,0 +1,8 @@
+{
+  "model_id": "kakaocorp/kanana-nano-2.1b-base",
+  "quant_mode": "int8",
+  "tflite_path": "/home/mjudcd/문서/Study/kanana-test/ondevice/outputs/int8/kanana_int8.tflite",
+  "tokenizer_path": "/home/mjudcd/문서/Study/kanana-test/ondevice/outputs/int8/tokenizer",
+  "bos_token_id": 128000,
+  "eos_token_id": 128001
+}
