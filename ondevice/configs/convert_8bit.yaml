@@ -1,0 +1,16 @@
+model_id: kakaocorp/kanana-nano-2.1b-base
+output_dir: ondevice/outputs/int8
+quantization: int8
+device: auto
+dtype: bfloat16
+sample_prompt: "안녕하세요. 모델 상태를 점검합니다."
+max_new_tokens: 64
+export:
+  save_tokenizer: true
+  save_generation_config: true
+bundle:
+  create_task: true
+  create_litertlm: false
+  start_token: "<bos>"
+  stop_tokens:
+    - "<eos>"
