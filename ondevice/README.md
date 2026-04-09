@@ -52,7 +52,3 @@ python ondevice/scripts/verify_artifact.py \
 - LiteRT / AI Edge Torch 관련 Python 패키지(환경별 상이)
 
 > 참고: Kanana 계열의 직접 `.task` / `.litertlm` 변환은 환경/도구 버전에 따라 실패할 수 있습니다. 이 스크립트들은 **사전 점검 + 재현 가능한 시도 경로**를 제공하는 데 초점을 둡니다.
-
-## Troubleshooting
-- `StrictDataclassClassValidationError` (예: `hidden size ... is not a multiple ...`)가 `inspect_model.py`에서 발생하던 케이스를 피하기 위해, 현재 inspect 스크립트는 `AutoConfig` 실패 시 `config.json` 원본을 직접 읽어 리포트를 계속 생성합니다.
-- 즉, `AutoConfig`가 실패해도 `ondevice/logs/inspect_report.json`에 실패 원인과 raw config 기반 sanity 결과가 남습니다.
